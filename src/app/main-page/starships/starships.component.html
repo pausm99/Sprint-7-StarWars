@@ -1,0 +1,8 @@
+<ul class="flex flex-col gap-3">
+  @for (starship of starships; track $index) {
+    <li class="starship p-4">
+      <p>{{ starship.name }}</p>
+      <p>{{ starship.model }}</p>
+    </li>
+  }
+</ul>
