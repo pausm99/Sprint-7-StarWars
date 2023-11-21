@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../src/assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf');
+  /* Puedes agregar más formatos y configuraciones según sea necesario */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../src/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+  /* Puedes agregar más formatos y configuraciones según sea necesario */
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+  color: white; //CAMBIAR !!!!********
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  font-weight: 200;
+}
+
+p {
+  font-size: 0.85rem;
+}

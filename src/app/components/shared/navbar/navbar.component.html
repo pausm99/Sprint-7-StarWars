@@ -1,0 +1,7 @@
+<nav class="flex justify-center align-center gap-4 flex-wrap">
+  @for (item of menuItems; track $index) {
+    <a [routerLink]="item.path">
+      <span class="uppercase">{{ item.title }}</span>
+    </a>
+  }
+</nav>
