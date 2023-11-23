@@ -28,7 +28,6 @@ export class StarshipsComponent implements OnInit {
       this.starships.forEach(ship => {
         ship.id = ship.url.split('/').reverse()[1];
       })
-      console.log(this.starships);
     } catch (error) {
       console.log(error);
     }

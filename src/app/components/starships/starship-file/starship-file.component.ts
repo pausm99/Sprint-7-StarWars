@@ -41,31 +41,24 @@ export class StarshipFileComponent implements OnInit {
   constructor(private route: ActivatedRoute, private starwarsService: StarwarsService) {}
 
   ngOnInit(): void {
-      this.route.paramMap.subscribe(params => {
-        this.starshipID = params.get('id')!;
-      });
+    this.route.paramMap.subscribe(params => {
+      this.starshipID = params.get('id')!;
+    });
 
-      this.getStarship(this.starshipID);
-      this.getStarshipPicture(this.starshipID);
-
+    this.getStarship(this.starshipID).then(() => this.getStarshipPicture(this.starshipID));
   }
 
   async getStarship(id: string) {
-    try {
-      this.starship = await this.starwarsService.getStarship(id);
-      console.log(this.starship);
-    } catch (error) {
-      console.log(error);
-    }
+    this.starship = await this.starwarsService.getStarship(id);
+    console.log(this.starship);
   }
 
   async getStarshipPicture(id: string) {
-    try {
-      this.starship.imageURL = await this.starwarsService.getStarshipPicture(id);
-      console.log(this.starship);
-    } catch (error) {
-      console.log(error);
-    }
+      try {
+        this.starship.imageURL = await this.starwarsService.getStarshipPicture(id)
+      } catch (error) {
+        this.starship.imageURL = '../../../assets/images/not-found-starship.jpeg';
+      }
   }
 
 }

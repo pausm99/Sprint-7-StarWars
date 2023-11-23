@@ -52,11 +52,16 @@ export class StarwarsService {
   public async getStarshipPicture(id: string): Promise<string> {
     try {
       const response = await fetch(this.imageApiUrl + id + '.jpg');
-      const responseData = await response.blob();
-      const imageUrl = URL.createObjectURL(responseData);
-      // imageUrl ahora contiene la URL de la imagen que puedes asignar a una propiedad en tu componente
-      console.log('Imagen cargada correctamente:', imageUrl);
-      return imageUrl;
+
+      if (response.ok) {
+        const responseData = await response.blob();
+        const imageUrl = URL.createObjectURL(responseData);
+        // imageUrl ahora contiene la URL de la imagen que puedes asignar a una propiedad en tu componente
+        console.log('Imagen loaded succesfully:', imageUrl);
+        return imageUrl;
+      }
+      else throw new Error('Image not available');
+
     } catch (error) {
       console.error('Fetch error:', error);
       throw error;
