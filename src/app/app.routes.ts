@@ -1,3 +1,10 @@
 import { Routes } from '@angular/router';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { StarshipsComponent } from './components/starships/starships.component';
+import { StarshipFileComponent } from './components/starships/starship-file/starship-file.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: 'main-page', title: 'Main Page', component: MainPageComponent },
+  { path: 'starships', title: 'Starships', component: StarshipsComponent },
+  { path: 'starships/:id', title: 'Starship File', component: StarshipFileComponent },
+];

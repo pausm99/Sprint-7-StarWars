@@ -1,0 +1,19 @@
+<section class="flex flex-col gap-2">
+  <h1 class="starship-title text-4xl py-4 px-6">STARSHIP</h1>
+  <div class="starship-file flex">
+    <div class="starship-file-image">
+      <img [src]="starship.imageURL" alt="">
+    </div>
+    <div class="starship-file-text">
+      <h2 class="font-semibold text-2xl">{{starship.name }}</h2>
+      <ul class="grid grid-cols-1 tablet:grid-cols-2">
+        <li>Model: {{starship.model }}</li>
+        <li>Cost in credits: {{ starship.cost_in_credits }}</li>
+        <li>Atmosphering Speed: {{ starship.max_atmosphering_speed }}</li>
+        <li>Manufacturer: {{ starship.manufacturer }}</li>
+        <li>Length: {{ starship.length }}</li>
+        <li>Crew: {{ starship.crew }}</li>
+      </ul>
+    </div>
+  </div>
+</section>
