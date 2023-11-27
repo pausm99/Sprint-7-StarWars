@@ -45,12 +45,18 @@ export class StarshipFileComponent implements OnInit {
       this.starshipID = params.get('id')!;
     });
 
-    this.getStarship(this.starshipID).then(() => this.getStarshipPicture(this.starshipID));
+    this.getStarship(this.starshipID);
   }
 
-  async getStarship(id: string) {
-    this.starship = await this.starwarsService.getStarship(id);
-    console.log(this.starship);
+  public getStarship(id: string) {
+    this.starwarsService.getStarship(id)
+        .subscribe({
+          next: async (data) => {
+            this.starship = data;
+            await this.getStarshipPicture(id);
+          },
+          error: (error) => console.log(error)
+        })
   }
 
   async getStarshipPicture(id: string) {

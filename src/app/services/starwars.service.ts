@@ -1,4 +1,5 @@
-import { Starship } from './../interfaces/starship.interface';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,52 +7,22 @@ import { Injectable } from '@angular/core';
 })
 export class StarwarsService {
 
-  private apiUrl = 'https://swapi.py4e.com/api/';
-  private imageApiUrl = 'https://starwars-visualguide.com/assets/img/starships/';
+  private apiUrl = 'https://swapi.py4e.com/api';
+  private imageApiUrl = 'https://starwars-visualguide.com/assets/img/starships';
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
-  public async getStarships(): Promise<Starship[]> {
-    try {
-      const response = await fetch(this.apiUrl + 'starships');
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const responseData = await response.json();
-      const data = responseData.results;
-      console.log(data);
-
-      return data;
-    } catch (error) {
-      console.error('Fetch error:', error);
-      throw error;
-    }
+  public getStarships(page: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/starships/?page=${page.toString()}`);
   }
 
-  public async getStarship(id: string): Promise<Starship> {
-    try {
-      const response = await fetch(this.apiUrl + 'starships/' + id)
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const responseData = await response.json();
-      const data = responseData;
-
-      return data;
-
-    } catch (error) {
-      console.error('Fetch error:', error);
-      throw error;
-    }
+  public getStarship(id: string): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/starships/${id}`);
   }
 
   public async getStarshipPicture(id: string): Promise<string> {
     try {
-      const response = await fetch(this.imageApiUrl + id + '.jpg');
+      const response = await fetch(`${this.imageApiUrl}/${id}.jpg`);
 
       if (response.ok) {
         const responseData = await response.blob();
