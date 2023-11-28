@@ -1,7 +1,36 @@
-<nav class="flex justify-center align-center gap-4 flex-wrap">
-  @for (item of menuItems; track $index) {
-    <a [routerLink]="item.path">
-      <span class="uppercase">{{ item.title }}</span>
+<nav>
+  <div class="max-w-screen-xl flex flex-wrap items-center tablet:flex-col justify-between mx-auto p-4 tablet:px-0 tablet:gap-6">
+    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center justify-center tablet:hidden" aria-controls="navbar-default" aria-expanded="false">
+      <img src="../../../../assets/images/hamburger-icon.svg" alt="Hamburger Icon">
+    </button>
+    <a href="/" class="tablet:hidden logo">
+      <img id="logo-mobile" src="../../../../assets/images/star-wars-logo-mobile.png" alt="Star Wars Logo">
     </a>
-  }
+    <div class="relative w-full hidden tablet:visible tablet:flex justify-center items-center">
+      <div id="gif-div" class="absolute left-8">
+        <img src="../navbar/../../../../assets/images/lighsaber-gif.gif" alt="LightSabers GIF">
+      </div>
+      <a href="/" class="logo">
+        <img id="logo-desktop" src="../../../../assets/images/starwars-logo-desktop.png" alt="Star Wars Logo">
+      </a>
+      <div id="user" class="flex gap-4 absolute right-8 uppercase">
+        <a href=""><span>Log In</span></a><!--POSAR EL ROUTERLINK-->
+        <a href=""><span>Sign Up</span></a><!--POSAR EL ROUTERLINK-->
+      </div>
+    </div>
+    <a href=""><!--POSAR EL ROUTERLINK-->
+      <img class="tablet:hidden" src="../../../../assets/images/user.svg" alt="User icon" id="user-icon">
+    </a>
+    <div class="hidden w-full tablet:flex justify-center items-center tablet:mt-6" id="navbar-default">
+      <ul class="flex flex-col p-4 tablet:p-0 mt-4 tablet:flex-row tablet:mt-0">
+        @for (item of menuItems; track $index) {
+          <li>
+            <a [routerLink]="item.path" routerLinkActive="is-active" class="block py-2 px-3 tablet:px-4 tablet:py-3 laptop:px-6 last:py-4">
+              <span class="uppercase">{{ item.title }}</span>
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
 </nav>

@@ -1,6 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+:root {
+  --main-white: #f8f8f8;
+  --dark-gray: #48494a;
+  --main-gray: #1D1E1F;
+  --text-gray: #A0A0A0;
+}
 
 @font-face {
   font-family: 'Montserrat';
@@ -24,11 +32,69 @@
 
 body {
   background-color: black;
-  color: white; //CAMBIAR !!!!********
+  color: var(--main-white);
   font-family: 'Montserrat', Helvetica, sans-serif;
   font-weight: 200;
+  color: var(--main-white);
 }
 
-p {
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+p, span, li {
   font-size: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 1.7rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  p, span, li {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.8rem;
+  }
+  p, span, li {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2.1rem;
+  }
+  p, span, li {
+    font-size: 1.5rem;
+  }
 }

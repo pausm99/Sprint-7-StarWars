@@ -1,13 +1,30 @@
 :host {
+  padding: 1rem;
+  padding-bottom: none;
   display: block;
-  height: 100vh;
 }
 
 ul {
   .starship {
-    background-color: rgb(40, 38, 38);
+    background-color: var(--main-gray);
     border-radius: 0.25rem;
+
+    .model {
+      color: var(--text-gray);
+    }
   }
 }
 
+@media (min-width: 1024px) {
+  :host {
+    margin: 0 auto;
+    width: 90%;
+  }
+}
 
+@media (min-width: 1280px) {
+  :host {
+    margin: 0 auto;
+    width: 80%;
+  }
+}

@@ -1,12 +1,11 @@
 <ul class="flex flex-col gap-3">
   @for (starship of starships; track starship.id) {
-      <li class="starship p-4" (click)="viewShip(starship.id)">
-        <p>{{ starship.name }}</p>
-        <p>{{ starship.model }}</p>
+      <li class="starship p-4 laptop:px-6 cursor-pointer" (click)="viewShip(starship.id)">
+        <p class="font-semibold">{{ starship.name }}</p>
+        <p class="model">{{ starship.model }}</p>
       </li>
   }
 </ul>
-
 <div
   infiniteScroll
   [infiniteScrollDistance]="1"
