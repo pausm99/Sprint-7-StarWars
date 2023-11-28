@@ -1,5 +1,5 @@
 import { StarwarsService } from '../../services/starwars.service';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Starship } from '../../interfaces/starship.interface';
 import { Router, RouterModule } from '@angular/router';
@@ -53,7 +53,4 @@ export class StarshipsComponent implements OnInit {
     if (id !== undefined) this.router.navigate(['/starships', id]);
     else alert('Starship not available');
   }
-
-
-
 }
