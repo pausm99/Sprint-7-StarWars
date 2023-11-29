@@ -8,6 +8,7 @@
   --dark-gray: #48494a;
   --main-gray: #1D1E1F;
   --text-gray: #A0A0A0;
+  --text-yellow: #FCC203;
 }
 
 @font-face {
@@ -50,7 +51,7 @@ h3 {
   font-size: 1.3rem;
 }
 
-p, span, li {
+p, span, li, a {
   font-size: 0.85rem;
 }
 

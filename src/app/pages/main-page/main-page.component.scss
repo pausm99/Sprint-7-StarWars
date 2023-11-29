@@ -1,4 +1,59 @@
-app-starships {
-  padding: 0.5rem 1rem;
-  display: block;
+@font-face {
+  font-family: 'Univers';
+  src: url('../../../assets/fonts/Univers/Univers\ LT\ Std\ 49\ Light\ Ultra\ Condensed.otf');
 }
+
+section {
+  .text {
+    color: var(--text-yellow);
+
+    h1 {
+      text-align: center;
+      font-family: 'Univers', Helvetica, sans-serif;
+      text-transform: uppercase;
+    }
+
+    p {
+      text-align: justify;
+      letter-spacing: 1px;
+      line-height: 1.8rem;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: bold;
+    }
+  }
+
+  #starships-button {
+    font-weight: 400;
+    letter-spacing: 2px;
+    background-color: var(--text-yellow);
+    color: var(--dark-gray);
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  #starships-button:hover {
+    background-color: transparent;
+    border: 1px solid var(--text-yellow);
+    color: var(--text-yellow);
+  }
+
+}
+
+
+@media (min-width: 768px) {
+  section {
+    margin: 0 auto;
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+
+}
+
+@media (min-width: 1280px) {
+  section {
+    max-width: 500px;
+  }
+}
+
