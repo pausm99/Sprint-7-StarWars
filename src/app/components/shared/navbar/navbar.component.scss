@@ -4,6 +4,12 @@ nav {
     height: auto;
   }
 
+  #user-menu {
+    a {
+      cursor: pointer;
+    }
+  }
+
   #user-icon {
     height: 24px;
     width: 24px;
@@ -35,6 +41,11 @@ nav {
       border-radius: 5px;
       box-shadow: 0 0 4px 1px red;
     }
+  }
+
+  #navbar-user {
+    transition: all 200ms ease;
+    border-bottom: 1px solid var(--main-gray);
   }
 }
 

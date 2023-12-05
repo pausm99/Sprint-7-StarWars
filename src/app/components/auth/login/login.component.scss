@@ -1,0 +1,74 @@
+@import '../../../app.component.scss';
+
+:host {
+  color: var(--text-black);
+}
+
+form {
+  max-width: 580px !important;
+  padding: 1.5rem 2.5rem;
+  padding-bottom: 3rem;
+
+  & > *:not(.closeButton) {
+    width: 100%;
+  }
+
+  p {
+    font-weight: 400;
+  }
+
+  .closeButton {
+    @include close-button;
+  }
+
+  input {
+    @include input;
+  }
+
+  .is-invalid {
+    @include is-invalid;
+  }
+
+  .is-valid {
+    @include is-valid;
+  }
+
+  #loginButton {
+    @include main-button;
+  }
+}
+
+@media (min-width: 581px) {
+  form {
+    padding: 3.5rem 4.5rem;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .closeButton {
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .closeButton {
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .closeButton {
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+

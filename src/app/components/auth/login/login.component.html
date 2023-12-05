@@ -1,0 +1,32 @@
+<form [formGroup]="loginForm" class="relative flex flex-col items-center gap-6">
+  <button class="absolute top-4 right-6 closeButton w-fit float-right" (click)="closeDialog()">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.92894 4.92888C4.53842 5.3194 4.53842 5.95257 4.92894 6.34309L10.5858 11.9999L4.92894 17.6568C4.53842 18.0473 4.53842 18.6805 4.92894 19.071C5.31946 19.4615 5.95263 19.4615 6.34315 19.071L12 13.4142L17.6569 19.071C18.0474 19.4615 18.6806 19.4615 19.0711 19.071C19.4616 18.6805 19.4616 18.0473 19.0711 17.6568L13.4142 11.9999L19.0711 6.34309C19.4616 5.95257 19.4616 5.3194 19.0711 4.92888C18.6806 4.53836 18.0474 4.53836 17.6569 4.92888L12 10.5857L6.34315 4.92888C5.95263 4.53836 5.31946 4.53836 4.92894 4.92888Z" fill="#252526"></path></svg>
+  </button>
+  <h1 class="mt-4 font-bold text-xl tablet:text-2xl laptop:text-3xl">Log In</h1>
+  <p class="text-sm">Log into your Star Wars account. If you don't have one, you can register for free!</p>
+  <div class="div-input">
+    <input class="text-sm" formControlName="email" type="email" placeholder="Email"
+    [ngClass]="{'
+      is-invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched,
+      'is-valid': loginForm.get('email')?.valid && loginForm.get('email')?.touched,
+    }">
+    @if (loginForm.get('email')?.invalid && loginForm.get('email')?.touched) {
+      <span class="text-sm text-red-600 ml-2">Email is required</span>
+    }
+  </div>
+  <div class="div-input">
+    <input class="text-sm" formControlName="password" type="password" placeholder="Password"
+    [ngClass]="{'
+      is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched,
+      'is-valid': loginForm.get('password')?.valid && loginForm.get('password')?.touched,
+    }">
+    @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+      <span class="text-sm text-red-600 ml-2">Password is required</span>
+    }
+  </div>
+  @if(incorrectLogin) {
+    <span class="text-sm text-red-600 ml-2">Authentication failed. Incorrect email or password</span>
+    <p class="text-sm">Don't have an account? <span class="cursor-pointer text-sm underline text-blue-600" (click)="navigateToRegistration()">Register here</span></p>
+  }
+  <button type="button" (click)="login()" id="loginButton" class="w-full text-sm tablet:text-base">Log In</button>
+</form>

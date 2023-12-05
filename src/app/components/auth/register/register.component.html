@@ -1,0 +1,62 @@
+<form [formGroup]="registerForm" class="relative flex flex-col items-center gap-6" novalidate>
+  <button class="absolute top-4 right-6 closeButton w-fit float-right" (click)="closeDialog()">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.92894 4.92888C4.53842 5.3194 4.53842 5.95257 4.92894 6.34309L10.5858 11.9999L4.92894 17.6568C4.53842 18.0473 4.53842 18.6805 4.92894 19.071C5.31946 19.4615 5.95263 19.4615 6.34315 19.071L12 13.4142L17.6569 19.071C18.0474 19.4615 18.6806 19.4615 19.0711 19.071C19.4616 18.6805 19.4616 18.0473 19.0711 17.6568L13.4142 11.9999L19.0711 6.34309C19.4616 5.95257 19.4616 5.3194 19.0711 4.92888C18.6806 4.53836 18.0474 4.53836 17.6569 4.92888L12 10.5857L6.34315 4.92888C5.95263 4.53836 5.31946 4.53836 4.92894 4.92888Z" fill="#252526"></path></svg>
+  </button>
+  <h1 class="mt-4 font-bold text-xl tablet:text-2xl laptop:text-3xl">Create your account</h1>
+  <p class="text-sm">You'll be able to log into services and experiences using the same email and password.</p>
+  <div class="div-input">
+    <input class="text-sm" formControlName="firstName" type="text" placeholder="First Name" required
+    [ngClass]="{'
+      is-invalid': registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched,
+      'is-valid': registerForm.get('firstName')?.valid && registerForm.get('firstName')?.touched,
+    }">
+    @if (registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched) {
+      <span class="text-sm text-red-600 ml-2">User first name is required</span>
+    }
+  </div>
+  <div class="div-input">
+    <input class="text-sm" formControlName="lastName" type="text" placeholder="Last Name" required
+    [ngClass]="{'
+      is-invalid': registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched,
+      'is-valid': registerForm.get('lastName')?.valid && registerForm.get('lastName')?.touched,
+    }">
+    @if (registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched) {
+      <span class="text-sm text-red-600 ml-2">User last name is required</span>
+    }
+  </div>
+  <div class="div-input">
+    <input class="text-sm" formControlName="email" type="email" placeholder="Email" required
+    [ngClass]="{'
+      is-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.touched || repeatedEmail,
+      'is-valid': registerForm.get('email')?.valid && registerForm.get('email')?.touched && !repeatedEmail,
+    }">
+    @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+      <span class="text-sm text-red-600 ml-2">Email is required</span>
+    }
+    @else if (repeatedEmail) {
+      <span class="text-sm text-red-600 ml-2">Email already registered</span>
+    }
+  </div>
+  <div class="div-input">
+    <input class="text-sm" formControlName="password" type="password" placeholder="Password" required
+    [ngClass]="{'
+      is-invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched,
+      'is-valid': registerForm.get('password')?.valid && registerForm.get('password')?.touched,
+    }">
+    @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+      @if(registerForm.get('password')?.hasError('required')) {
+        <span class="text-sm text-red-600 ml-2">Password is required</span>
+      }
+      @else if(registerForm.get('password')?.hasError('invalidPassword')) {
+        <ul class="text-sm text-red-600 ml-2 list-disc">
+          Password must have:
+          <li class="text-sm">At least one lowercase letter</li>
+          <li class="text-sm">At least one uppercase letter</li>
+          <li class="text-sm">At least one number</li>
+          <li class="text-sm">Minimum length of 8 characters</li>
+        </ul>
+      }
+    }
+  </div>
+  <button type="button" (click)="register()" id="registerButton" class="w-full text-sm tablet:text-base">Create Account</button>
+</form>

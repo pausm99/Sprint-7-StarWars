@@ -13,14 +13,19 @@
       <a href="/" class="logo">
         <img id="logo-desktop" src="../../../../assets/images/starwars-logo-desktop.png" alt="Star Wars Logo">
       </a>
-      <div id="user" class="flex gap-4 absolute right-8 uppercase">
-        <a href=""><span>Log In</span></a><!--POSAR EL ROUTERLINK-->
-        <a href=""><span>Sign Up</span></a><!--POSAR EL ROUTERLINK-->
+      <div id="user-menu" class="flex gap-4 absolute right-8 uppercase">
+        @if (userToken() === '') {
+          <a (click)="openLogIn()"><span>Log In</span></a>
+          <a (click)="openRegister()"><span>Sign Up</span></a>
+        }
+        @else {
+          <a (click)="logout()"><span>Log Out</span></a>
+        }
       </div>
     </div>
-    <a href=""><!--POSAR EL ROUTERLINK-->
-      <img class="tablet:hidden" src="../../../../assets/images/user.svg" alt="User icon" id="user-icon">
-    </a>
+    <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center justify-center tablet:hidden" aria-controls="navbar-user" aria-expanded="false">
+      <img src="../../../../assets/images/user.svg" alt="User Icon">
+    </button>
     <div class="hidden w-full tablet:flex justify-center items-center tablet:mt-6" id="navbar-default">
       <ul class="flex flex-col p-4 tablet:p-0 mt-4 tablet:flex-row tablet:mt-0">
         @for (item of menuItems; track $index) {
@@ -29,6 +34,17 @@
               <span class="uppercase">{{ item.title }}</span>
             </a>
           </li>
+        }
+      </ul>
+    </div>
+    <div class="hidden w-full tablet:hidden justify-center items-center tablet:mt-6" id="navbar-user">
+      <ul class="flex flex-col p-4 tablet:p-0 mt-4 tablet:flex-row tablet:mt-0">
+        @if (userToken() === '') {
+          <li><a class="block text-right py-2 px-3 tablet:px-4 tablet:py-3 laptop:px-6 last:py-4" (click)="openLogIn()"><span class="uppercase">Log In</span></a></li>
+          <li><a class="block text-right py-2 px-3 tablet:px-4 tablet:py-3 laptop:px-6 last:py-4" (click)="openRegister()"><span class="uppercase">Sign Up</span></a></li>
+        }
+        @else {
+          <li><a class="block text-right py-2 px-3 tablet:px-4 tablet:py-3 laptop:px-6 last:py-4" (click)="logout()"><span class="uppercase">Log Out</span></a></li>
         }
       </ul>
     </div>

@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$8leMVr9WwfV1qtGlL6Fnju2kh/Ki.0uu/PBgiaaVW1jYFi1M52VUq",
+      "firstName": "admin",
+      "lastName": "admin",
+      "id": 1
+    },
+    {
+      "email": "pausm99@gmail.com",
+      "password": "$2a$10$.mIYVyaKlUSwsTkLOYmdLeOdbKz2RmJxXEuemX7CZTo0njVr4Yqrq",
+      "firstName": "Pau",
+      "lastName": "Martí",
+      "id": 2
+    }
+  ]
+}

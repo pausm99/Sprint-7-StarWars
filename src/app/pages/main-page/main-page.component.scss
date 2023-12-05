@@ -1,3 +1,5 @@
+@import '../../app.component.scss';
+
 @font-face {
   font-family: 'Univers';
   src: url('../../../assets/fonts/Univers/Univers\ LT\ Std\ 49\ Light\ Ultra\ Condensed.otf');
@@ -23,20 +25,9 @@ section {
   }
 
   #starships-button {
-    font-weight: 400;
-    letter-spacing: 2px;
-    background-color: var(--text-yellow);
-    color: var(--dark-gray);
-    border-radius: 2rem;
-    padding: 0.75rem 1.5rem;
-  }
+    @include main-button;
 
-  #starships-button:hover {
-    background-color: transparent;
-    border: 1px solid var(--text-yellow);
-    color: var(--text-yellow);
   }
-
 }
 
 
@@ -44,11 +35,27 @@ section {
   section {
     margin: 0 auto;
     width: 50%;
+
+    #starships-button {
+      padding: 1rem 2rem;
+      
+      a {
+        font-size: 1.1rem !important;
+      }
+    }
   }
 }
 
 @media (min-width: 1024px) {
+  section {
+    #starships-button {
+      padding: 1rem 2.5rem;
 
+      a {
+        font-size: 1.3rem !important;
+      }
+    }
+  }
 }
 
 @media (min-width: 1280px) {

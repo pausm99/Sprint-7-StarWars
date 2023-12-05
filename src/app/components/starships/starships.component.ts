@@ -1,4 +1,4 @@
-import { StarwarsService } from '../../services/starwars.service';
+import { StarwarsService } from '../../services/starwars/starwars.service';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Starship } from '../../interfaces/starship.interface';

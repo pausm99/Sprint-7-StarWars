@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { StarwarsService } from '../../../services/starwars.service';
+import { StarwarsService } from '../../../services/starwars/starwars.service';
 import { Starship } from '../../../interfaces/starship.interface';
 
 @Component({
