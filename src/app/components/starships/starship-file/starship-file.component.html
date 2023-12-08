@@ -1,18 +1,26 @@
-<h2 class="starship-title px-4">STARSHIP</h2>
-<section class="flex flex-col tablet:flex-row starship-file overflow-hidden">
-  <div class="starship-file-image flex justify-center items-center">
-    <img [src]="starship.imageURL" alt="Starship photo">
-  </div>
-  <div class="starship-file-text w-full p-2 py-4 tablet:p-6">
-    <h3 class="font-normal mb-3">{{starship.name }}</h3>
-    <p class="mb-4 laptop:mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium velit vero ab maxime. Vel inventore accusantium nobis, soluta doloribus consectetur!</p>
-    <ul class="grid grid-cols-1 laptop:grid-cols-2 gap-2">
-      <li>Model: <span >{{starship.model }}</span></li>
-      <li>Cost in credits: <span >{{ starship.cost_in_credits }}</span></li>
-      <li>Atmosphering Speed: <span >{{ starship.max_atmosphering_speed }}</span></li>
-      <li>Manufacturer: <span >{{ starship.manufacturer }}</span></li>
-      <li>Length: <span >{{ starship.length }}</span></li>
-      <li>Crew: <span >{{ starship.crew }}</span></li>
-    </ul>
+<section>
+  <h2 class="section-title px-4 mb-6 laptop:mb-8">STARSHIP</h2>
+  <div class="flex flex-col tablet:flex-row starship-file overflow-hidden">
+    <div class="starship-file-image flex justify-center items-center">
+      <img [src]="starship.imageURL" alt="Starship photo">
+    </div>
+    <div class="starship-file-text w-full p-2 py-4 tablet:p-6">
+      <h3 class="font-normal mb-3">{{starship.name }}</h3>
+      <p class="mb-4 laptop:mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium velit vero ab maxime. Vel inventore accusantium nobis, soluta doloribus consectetur!</p>
+      <ul class="grid grid-cols-1 laptop:grid-cols-2 gap-2">
+        <li>Model: <span >{{starship.model }}</span></li>
+        <li>Cost in credits: <span >{{ starship.cost_in_credits }}</span></li>
+        <li>Atmosphering Speed: <span >{{ starship.max_atmosphering_speed }}</span></li>
+        <li>Manufacturer: <span >{{ starship.manufacturer }}</span></li>
+        <li>Length: <span >{{ starship.length }}</span></li>
+        <li>Crew: <span >{{ starship.crew }}</span></li>
+      </ul>
+    </div>
   </div>
 </section>
+@if (pilots.length > 0) {
+  <app-pilots [pilotsURLs]="pilots"></app-pilots>
+}
+@if (films.length > 0) {
+  <app-films [filmsURLs]="films"></app-films>
+}

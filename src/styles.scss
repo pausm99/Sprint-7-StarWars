@@ -48,10 +48,10 @@ $starwars-theme: mat.define-light-theme((
 }
 
 @font-face {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat-italic';
   src: url('../src/assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf');
   /* Puedes agregar más formatos y configuraciones según sea necesario */
-  font-style: normal;
+  font-style: italic;
 }
 
 @font-face {
@@ -70,9 +70,11 @@ $starwars-theme: mat.define-light-theme((
 body {
   background-color: black;
   color: var(--main-white);
+}
+
+* {
   font-family: 'Montserrat', Helvetica, sans-serif;
   font-weight: 200;
-  color: var(--main-white);
 }
 
 h1 {

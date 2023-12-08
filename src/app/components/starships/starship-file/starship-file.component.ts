@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StarwarsService } from '../../../services/starwars/starwars.service';
 import { Starship } from '../../../interfaces/starship.interface';
+import { PilotsComponent } from './pilots/pilots.component';
+import { FilmsComponent } from './films/films.component';
 
 @Component({
   selector: 'app-starship-file',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PilotsComponent, FilmsComponent],
   templateUrl: './starship-file.component.html',
   styleUrl: './starship-file.component.scss'
 })
@@ -38,6 +40,9 @@ export class StarshipFileComponent implements OnInit {
     imageURL: ''
   };
 
+  public pilots: string[] = [];
+  public films: string[] = [];
+
   constructor(private route: ActivatedRoute, private starwarsService: StarwarsService) {}
 
   ngOnInit(): void {
@@ -53,6 +58,8 @@ export class StarshipFileComponent implements OnInit {
         .subscribe({
           next: async (data) => {
             this.starship = data;
+            this.pilots = this.starship.pilots;
+            this.films = this.starship.films;
             await this.getStarshipPicture(id);
           },
           error: (error) => console.log(error)

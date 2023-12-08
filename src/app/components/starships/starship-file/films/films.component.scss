@@ -1,0 +1,13 @@
+@import '../../../../app.component.scss';
+
+section {
+  h2 {
+    border-bottom: 1px solid var(--dark-gray);
+    border-top: 1px solid var(--dark-gray);
+  }
+
+  .section-cards {
+    @include section-cards;
+  }
+}
+

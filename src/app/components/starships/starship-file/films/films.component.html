@@ -1,0 +1,18 @@
+<section>
+  <h2 class="section-title px-4 mb-6">FILMS</h2>
+  <div class="section-cards">
+    <ul class="flex flex-col tablet:flex-row flex-wrap items-center films-section gap-4">
+      @for (film of filmsArray; track $index) {
+        <li class="film-card">
+          <div class="section-card-image">
+            <img [src]="film.imageUrl" [alt]="film.title + ' film picture'">
+          </div>
+          <div class="section-card-text">
+            <span>{{ film.title }}</span>
+            <span class="film-episode">{{ film.episode }}</span>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

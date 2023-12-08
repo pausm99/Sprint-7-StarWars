@@ -1,0 +1,17 @@
+<section>
+  <h2 class="section-title px-4 mb-6">PILOTS</h2>
+  <div class="section-cards">
+    <ul class="flex flex-col tablet:flex-row items-center pilots-section gap-4">
+      @for (pilot of pilotsArray; track $index) {
+        <li>
+          <div class="section-card-image">
+            <img [src]="pilot.imageUrl" [alt]="pilot.name + ' pilot picture'">
+          </div>
+          <div class="section-card-text">
+            <span>{{ pilot.name }}</span>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
