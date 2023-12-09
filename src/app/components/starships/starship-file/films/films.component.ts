@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StarwarsService } from '../../../../services/starwars/starwars.service';
 
@@ -57,5 +57,6 @@ export class FilmsComponent implements OnChanges {
       film.imageUrl = '../../../../assets/images/not-found-starship.jpeg';
     }
   }
+
 
 }

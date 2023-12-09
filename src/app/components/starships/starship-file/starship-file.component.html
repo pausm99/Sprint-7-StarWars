@@ -18,9 +18,21 @@
     </div>
   </div>
 </section>
-@if (pilots.length > 0) {
-  <app-pilots [pilotsURLs]="pilots"></app-pilots>
+
+
+@defer (when pilotsLoaded){
+  @if (pilots.length > 0) {
+    <app-pilots [pilotsURLs]="pilots"></app-pilots>
+  }
+} @placeholder {
+  <span>Loading pilots...</span>
 }
-@if (films.length > 0) {
-  <app-films [filmsURLs]="films"></app-films>
+
+
+@defer (when filmsLoaded){
+  @if (films.length > 0) {
+    <app-films [filmsURLs]="films"></app-films>
+  }
+} @placeholder {
+  <span>Loading films...</span>
 }

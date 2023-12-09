@@ -50,7 +50,6 @@ export class StarshipsComponent implements OnInit {
   }
 
   public viewShip(id: string) {
-    if (id !== undefined) this.router.navigate(['/starships', id]);
-    else alert('Starship not available');
+    this.router.navigate(['/starships', id]);
   }
 }

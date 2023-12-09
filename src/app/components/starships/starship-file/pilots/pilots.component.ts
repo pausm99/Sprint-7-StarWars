@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StarwarsService } from '../../../../services/starwars/starwars.service';
 
@@ -16,7 +16,6 @@ type Pilot = {
   styleUrl: './pilots.component.scss'
 })
 export class PilotsComponent implements OnChanges {
-
 
   @Input() pilotsURLs: string[] = [];
 

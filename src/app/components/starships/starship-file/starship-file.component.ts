@@ -15,6 +15,9 @@ import { FilmsComponent } from './films/films.component';
 })
 export class StarshipFileComponent implements OnInit {
 
+  public pilotsLoaded: boolean = false;
+  public filmsLoaded: boolean = false;
+
   public starshipID: string = '';
 
   public starship: Starship = {
@@ -61,6 +64,8 @@ export class StarshipFileComponent implements OnInit {
             this.pilots = this.starship.pilots;
             this.films = this.starship.films;
             await this.getStarshipPicture(id);
+            this.filmsLoaded = true;
+            this.pilotsLoaded = true;
           },
           error: (error) => console.log(error)
         })
@@ -68,10 +73,9 @@ export class StarshipFileComponent implements OnInit {
 
   async getStarshipPicture(id: string) {
       try {
-        this.starship.imageURL = await this.starwarsService.getStarshipPicture(id)
+        this.starship.imageURL = await this.starwarsService.getStarshipPicture(id);
       } catch (error) {
         this.starship.imageURL = '../../../assets/images/not-found-starship.jpeg';
       }
   }
-
 }
