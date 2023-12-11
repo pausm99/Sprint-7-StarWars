@@ -23,7 +23,9 @@ export class NavbarComponent implements OnDestroy{
 
   public menuItems = routes
     .filter(route => route && route.path)
-    .filter(route => route && !route.path?.includes(':'));
+    .filter(route => route && !route.path?.includes(':'))
+    .filter(route => route && !route.path?.includes('**'))
+    .filter(route => route && !route.path?.includes('not-found'));
 
   constructor(public dialog: MatDialog, private dialogService: ComunicationService, public usersService: UsersService) {
     this.subscription = this.dialogService.closeDialog.subscribe(() => {
